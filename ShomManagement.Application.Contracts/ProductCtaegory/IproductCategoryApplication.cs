@@ -1,17 +1,14 @@
-﻿using ShopManagement.Domain.ProductCategoryAgg;
-using System;
+﻿using _01_Farmework.Application;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ShomManagement.Application.Contracts.ProductCtaegory
+
+namespace ShomManagement.Application.Contracts.Productctaegory
 {
     public  interface IproductCategoryApplication
     {
-        void Create(CreateProductCategory command);
-        void Edit(EditProductCategory command);
-        ProductCategory GetDetails(long id);
+        OperationResult Create(CreateProductCategory command);
+        OperationResult Edit(EditProductCategory command);
+        EditProductCategory GetDetails(long id);
         List<ProductCategoryViewModel> Search(ProductCategoryShearchModel shearchModel);
 
     }

@@ -1,6 +1,6 @@
 ﻿
 
-namespace ShomManagement.Application.Contracts.ProductCtaegory
+namespace ShomManagement.Application.Contracts.Productctaegory
 {
     public  class CreateProductCategory
     {
