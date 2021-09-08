@@ -1,42 +1,22 @@
-﻿using ShomManagement.Application.Contracts.Productctaegory;
+﻿using _01_Farmework.Infrastructure;
+using ShomManagement.Application.Contracts.Productctaegory;
 using ShopManagement.Domain.ProductCategoryAgg;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
+
 
 
 namespace Infrastructure.Repository
 {
-    public class ProductCategoryRepository : IProductCategoryRepository
+    public class ProductCategoryRepository: RepositoryBase<long, ProductCategory>,IProductCategoryRepository
     {
         private readonly ShopContext _shopContext;
-        public ProductCategoryRepository(ShopContext shopContext)
+        public ProductCategoryRepository(ShopContext shopContext):base(shopContext)
         {
             _shopContext = shopContext;
         }
-        public void Create(ProductCategory entity)
-        {
-            _shopContext.ProductCategories.Add(entity);
-            Save();
-            
-        }
 
-        public bool Exists(Expression<Func<ProductCategory, bool>> expression)
-        {
-            return _shopContext.ProductCategories.Any(expression);
-        }
-
-        public ProductCategory Get(long id)
-        {
-            //by find(id)
-            return _shopContext.ProductCategories.FirstOrDefault(x => x.id == id);
-        }
-
-        public List<ProductCategory> GetAll()
-        {
-            return _shopContext.ProductCategories.ToList();
-        }
+      
 
         public EditProductCategory GetDetails(long id)
         {
@@ -54,10 +34,7 @@ namespace Infrastructure.Repository
             }).FirstOrDefault(x => x.id == id);
         }
 
-        public void Save()
-        {
-            _shopContext.SaveChanges();
-        }
+       
 
         public List<ProductCategoryViewModel> Search(ProductCategoryShearchModel shearchModel)
         {
@@ -73,8 +50,10 @@ namespace Infrastructure.Repository
                 query = query.Where(x => x.Name.Contains(shearchModel.Name));
             return query.OrderByDescending(x => x.id).ToList();
           
-            
+     
             
         }
+
+        
     }
 }
