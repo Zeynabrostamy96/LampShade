@@ -1,6 +1,6 @@
 ﻿using _0_Framework.Application;
 using _01_Farmework.Application;
-using ShomManagement.Application.Contracts.Productctaegory;
+using ShopManagement.Application.Contracts.Productctaegory;
 using ShopManagement.Domain.ProductCategoryAgg;
 using System.Collections.Generic;
 
@@ -48,6 +48,8 @@ namespace ShopManagement.Application.ProductCategory
         {
             return _productCategoryRepository.GetDetails(id);
         }
+
+        
 
         public List<ProductCategoryViewModel> Search(ProductCategoryShearchModel shearchModel)
         {

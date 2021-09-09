@@ -1,9 +1,12 @@
 ﻿
 
-namespace ShomManagement.Application.Contracts.Productctaegory
+using System.ComponentModel.DataAnnotations;
+
+namespace ShopManagement.Application.Contracts.Productctaegory
 {
     public  class CreateProductCategory
     {
+        [Required]
         public string Name { get;  set; }
         public string Description { get;  set; }
         public string Picture { get;  set; }

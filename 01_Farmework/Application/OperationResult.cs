@@ -8,22 +8,22 @@ namespace _01_Farmework.Application
 {
     public  class OperationResult
     {
-        public bool IsSuccess { get; set; }
-        public string Massage { get; set; }
+        public bool IsSuccedded { get; set; }
+        public string Message { get; set; }
         public OperationResult()
         {
-            IsSuccess = false;
+             IsSuccedded= false;
         }
-        public OperationResult Succedded(string message="عملیات با موفقیت انجام شد")
+        public OperationResult Succedded(string message = "عملیات با موفقیت انجام شد")
         {
-            IsSuccess = true;
-            Massage = message;
+            IsSuccedded = true;
+            Message = message;
             return this;
         }
         public OperationResult Faild(string message)
         {
-            IsSuccess = false;
-            Massage = message;
+            IsSuccedded = false;
+            Message = message;
             return this;
 
         }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 
-namespace ShomManagement.Application.Contracts.Productctaegory
+namespace ShopManagement.Application.Contracts.Productctaegory
 {
     public  interface IproductCategoryApplication
     {
@@ -10,6 +10,7 @@ namespace ShomManagement.Application.Contracts.Productctaegory
         OperationResult Edit(EditProductCategory command);
         EditProductCategory GetDetails(long id);
         List<ProductCategoryViewModel> Search(ProductCategoryShearchModel shearchModel);
+
 
     }
 }
