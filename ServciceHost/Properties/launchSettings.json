@@ -1,10 +1,10 @@
-﻿{
+{
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:33667",
-      "sslPort": 44350
+      "applicationUrl": "http://localhost:50601/",
+      "sslPort": 44307
     }
   },
   "profiles": {
@@ -17,14 +17,12 @@
     },
     "ServciceHost": {
       "commandName": "Project",
-      "dotnetRunMessages": "true",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:5000",
-      //"launchUrl": "Adminstration/shop/ProduCtcategories",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "dotnetRunMessages": "true",
+      "applicationUrl": "https://localhost:5000"
     }
-  
   }
 }

@@ -1,0 +1,127 @@
+﻿@model List<ProductCategoryViewModel> 
+@using _01_Query.Contract.ProductCategory
+<div class="single-row-slider-tab-area section-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title-wrapper text-center section-space--half">
+                    <h2 class="section-title">محصولات ما</h2>
+                    <p class="section-subtitle">
+
+
+                        لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر متن باشد. معمولا طراحان گرافیک برای صفحه‌آرایی، نخست از متن‌های آزمایشی و بی‌معنی استفاده می‌کنند تا صرفا به مشتری یا صاحب کار خود نشان دهند که صفحه طراحی یا صفحه بندی شده بعد از اینکه متن در آن قرار گیرد چگونه به نظر می‌رسد و قلم‌ها و اندازه‌بندی‌ها چگونه در نظر گرفته شده‌است. از آنجایی که طراحان عموما نویسنده متن نیستند و وظیفه رعایت حق تکثیر متون را ندارند و در همان حال کار آنها به نوعی وابسته به متن می‌باشد آنها با استفاده از محتویات ساختگی، صفحه گرافیکی خود را صفحه‌آرایی می‌کنند تا مرحله طراحی و صفحه‌بندی را به پایان برند.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="tab-slider-wrapper">
+                    <div class="tab-product-navigation">
+                        <div class="nav nav-tabs justify-content-center" id="nav-tab2" role="tablist">
+                            @foreach (var item in Model)
+                            {
+                                <a class="nav-item nav-link @( Model.First() == item?"active" : "") " id="product-tab-@item.id" data-toggle="tab"
+                                   href="#product-series-@item.id" role="tab" aria-selected="true">@item.Name</a>
+
+                            }
+
+
+                        </div>
+                    </div>
+
+                    <div class="tab-content">
+
+                        @foreach (var category in Model)
+                        {
+                        <div class="tab-pane fade show @( Model.First() == category?"active" : "") " id="product-series-@category.id" role="tabpanel"
+                             aria-labelledby="product-tab-1">
+                            <div class="single-row-slider-wrapper">
+                                <div class="ht-slick-slider" data-slick-setting='{
+                                    "slidesToShow": 4,
+                                    "slidesToScroll": 1,
+                                    "arrows": true,
+                                    "autoplay": false,
+                                    "autoplaySpeed": 5000,
+                                    "speed": 1000,
+                                    "infinite": true,
+                                    "rtl": true,
+                                    "prevArrow": {"buttonClass": "slick-prev", "iconClass": "ion-chevron-left" },
+                                    "nextArrow": {"buttonClass": "slick-next", "iconClass": "ion-chevron-right" }
+                                }' data-slick-responsive='[
+                                    {"breakpoint":1501, "settings": {"slidesToShow": 4} },
+                                    {"breakpoint":1199, "settings": {"slidesToShow": 4, "arrows": false} },
+                                    {"breakpoint":991, "settings": {"slidesToShow": 3, "arrows": false} },
+                                    {"breakpoint":767, "settings": {"slidesToShow": 2, "arrows": false} },
+                                    {"breakpoint":575, "settings": {"slidesToShow": 2, "arrows": false} },
+                                    {"breakpoint":479, "settings": {"slidesToShow": 1, "arrows": false} }
+                                ]'>
+                                    @foreach (var item in category.products)
+                                    {
+                                        <div class="col">
+                                            <div class="single-grid-product">
+                                                <div class="single-grid-product__image">
+                                                    @if (item.HasDiscount)
+                                                    {
+                                                        <div class="single-grid-product__label">
+                                                            <span class="sale">-@item.DiscountRate%</span>
+                                                        </div>
+                                                    }
+                                                    <a asp-page="/Product" asp-route-slug="@item.Slug">
+                                                        <img src="~/ProductPicture/@item.Picture" class="img-fluid"
+                                                             alt="@item.PictureAlt" title="@item.PictureTitle">
+                                                    </a>
+
+                                                </div>
+                                                <div class="single-grid-product__content">
+                                                    <div class="single-grid-product__category-rating">
+                                                        <span class="category">
+                                                            <a asp-page="/ProductCategory" asp-route-slug="@item.Slug">@item.Category</a>
+                                                        </span>
+                                                        <span class="rating">
+                                                            <i class="ion-android-star active"></i>
+                                                            <i class="ion-android-star active"></i>
+                                                            <i class="ion-android-star active"></i>
+                                                            <i class="ion-android-star active"></i>
+                                                            <i class="ion-android-star-outline"></i>
+                                                        </span>
+                                                    </div>
+
+                                                    <h3 class="single-grid-product__title">
+                                                        <a asp-page="/Product" asp-route-slug="@item.Slug">
+                                                            @item.Name
+                                                        </a>
+                                                    </h3>
+                                                    @if (item.HasDiscount)
+                                                    {
+                                                        <p class="single-grid-product__price">
+                                                            <span class="discounted-price">@item.PriceWhitDiscount تومان</span>
+                                                            <span class="main-price discounted">@item.Price</span>
+                                                        </p>
+                                                    }
+                                                   else
+                                                    {
+                                                    <p class="single-grid-product__price">
+                                                        <span class="discounted-price">@item.Price تومان</span>
+                                                        
+                                                    </p>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    }
+
+
+                                </div>
+                            </div>
+                          </div>
+                         }
+
+                            
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

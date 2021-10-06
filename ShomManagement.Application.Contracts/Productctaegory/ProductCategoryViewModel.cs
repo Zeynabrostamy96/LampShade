@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShomManagement.Application.Contracts.Productctaegory
+namespace ShopManagement.Application.Contracts.Productctaegory
 {
     public class ProductCategoryViewModel
     {

@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\01_Farmework\01_Farmework.csproj" />
+    <ProjectReference Include="..\CommentManagment.Application.Contract\CommentManagment.Application.Contracts.csproj" />
+    <ProjectReference Include="..\CommentManagment.Domain\CommentManagment.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

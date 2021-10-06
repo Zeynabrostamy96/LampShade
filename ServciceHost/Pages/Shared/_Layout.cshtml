@@ -1,50 +1,52 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ServciceHost</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    @if (ViewData["title"] != null)
+    {
+        <title>@ViewData["title"]|فروشگاه لوازم دکوری </title>
+    }
+    else
+    {
+        <title>فروشگاه لوازم دکوری </title>
+    }
+    <meta   name="keywords"  content="@ViewData["keywords"]" />
+    <meta  name="description" content="@ViewData["metaDescription"]" />
+    <link href="~/Theme/assets/css/vendors.css" rel="stylesheet" />
+    <link href="~/Theme/assets/css/style.css" rel="stylesheet" />
+    <link href="~/Theme/assets/css/Custom.css" rel="stylesheet" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">ServciceHost</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+
+    @await Component.InvokeAsync("Menu")
+    @RenderBody()
+    @await Component.InvokeAsync("footer")
+
+
+    <div class="search-overlay" id="search-overlay">
+        <a href="javascript:void(0)" class="close-search-overlay" id="close-search-overlay">
+            <i class="ion-ios-close-empty"></i>
+        </a>
+        <div class="search-form">
+            <form method="get" asp-page="./Search">
+                <input type="search"  name="value" id="value" placeholder="هرچه می خواهید در فروشگاه جستجو کنید...">
+                <button type="submit">
+                    <i class="ion-android-search"></i>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+            </form>
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - ServciceHost - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
 
-    @await RenderSectionAsync("Scripts", required: false)
+    <div id="scroll-top">
+        <span>بروبالا</span><i class="ion-chevron-right"></i><i class="ion-chevron-right"></i>
+    </div>
+    <script src="~/Theme/assets/js/vendors.js"></script>
+    <script src="~/Theme/assets/js/active.js"></script>
+
 </body>
+
 </html>

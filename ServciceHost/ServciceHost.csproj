@@ -16,7 +16,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AccountManagment.Infrastructure.Configuration\AccountManagment.Infrastructure.Configuration.csproj" />
+    <ProjectReference Include="..\BlogManagment.Infrastructure.Configure\BlogManagment.Infrastructure.Configuration.csproj" />
+    <ProjectReference Include="..\CommentManagment.Application.Contract\CommentManagment.Application.Contracts.csproj" />
+    <ProjectReference Include="..\CommentManagment.Configuration\CommentManagment.Configuration.csproj" />
+    <ProjectReference Include="..\DiscountManagement.Infrastructure.Configuration\DiscountManagement.Infrastructure.Configuration.csproj" />
+    <ProjectReference Include="..\InventoryManagement.Infrastructure.Configuration\InventoryManagement.Infrastructure.Configuration.csproj" />
+    <ProjectReference Include="..\InventoryManagement.Infrastructure\InventoryManagement.Infrastructure.csproj" />
     <ProjectReference Include="..\ShopManagement.Configuration\ShopManagement.Configuration.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\ProductPicture\" />
   </ItemGroup>
 
 </Project>

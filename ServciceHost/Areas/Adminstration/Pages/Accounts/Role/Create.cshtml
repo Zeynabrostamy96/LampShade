@@ -1,0 +1,29 @@
+﻿@page
+@model ServciceHost.Areas.Adminstration.Pages.Accounts.Role.CreateModel
+@{
+    ViewData["Title"] = "ایجادنقش جدید";
+}
+<div class="modal-header">
+
+    <h4 class="modal-title">ایجادنقش جدید</h4>
+</div>
+
+<form method="post">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="command.Name" class="control-label">نام نقش </label>
+                    <input class="form-control" asp-for="command.Name">
+                    <span asp-validation-for="command.Name" class="error"></span>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a asp-page="./Index" class="btn btn-dark waves-effect waves-light m-b-5">بازگشت</a>
+        <button type="submit" class="btn btn-info waves-effect waves-light">ایجاد</button>
+    </div>
+</form>

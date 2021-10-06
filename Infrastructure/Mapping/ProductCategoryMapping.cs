@@ -23,6 +23,7 @@ namespace Infrastructure.Mapping
             builder.Property(x => x.KeyWords).HasMaxLength(80).IsRequired();
             builder.Property(x => x.MetaDescription).HasMaxLength(150).IsRequired();
             builder.Property(x => x.Slug).HasMaxLength(300).IsRequired();
+            builder.HasMany(x => x.products).WithOne(x => x.productCategory).HasForeignKey(x => x.ProductegoryId);
 
         }
     }
